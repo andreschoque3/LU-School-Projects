@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>engr_133_lab02_achoque</title>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] },
+  TeX: { equationNumbers: { autoNumber: 'all' } }
+});
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<style>
+body > * {
+  max-width: 42em;
+}
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  padding-left: 7.5em;
+  padding-right: 7.5em;
+}
+pre, code {
+  max-width: 50em;
+  font-family: monospace;
+}
+pre.oct-code {
+  border: 1px solid Grey;
+  padding: 5px;
+}
+pre.oct-code-output {
+  margin-left: 2em;
+}
+span.comment {
+  color: ForestGreen;
+}
+span.keyword {
+  color: Blue;
+}
+span.string {
+  color: DarkOrchid;
+}
+footer {
+  margin-top: 2em;
+  font-size: 80%;
+}
+a, a:visited {
+  color: Blue;
+}
+h2 {
+  font-family: "Roboto Condensed", serif;
+  margin-top: 1.5em;
+}
+h2 a, h2 a:visited {
+  color: Black;
+}
+</style>
+
+</head>
+<body>
+<h1>engr_133_lab02_achoque</h1>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#node1">ENGR 133, Lab-02</a></li>
+</ul>
+<h2><a id="node1">ENGR 133, Lab-02</a></h2>
+<p>Authored by: Andres Choque
+Authored on: 9/14/2020</p>
+
+<pre class="oct-code"><span class="comment">% Exercise #1</span>
+
+close all
+clear
+clc
+
+<span class="comment">% Problem presentation</span>
+<span class="comment">%{
+We are asked to perform some calculations for a projectile, given the equations
+for the horizonatal (x-direction) and vertical (y-direction) distance traveled
+as a function of initial velocity(Vo), launch angle(A), and time(t). We are
+given values for Vo and A, but x-distance, y-distance, and time are unknown. We
+want to know the maximum height of the projectile and the corresponding time to
+reach that height. We also want to create a plot of the entire flight of the
+projectile
+%}</span>
+
+<span class="comment">% Initialize Variables</span>
+Vo = 100; <span class="comment">% Initial velocity in m/s</span>
+A = 35; <span class="comment">% Launch in degrees</span>
+g = 9.81; <span class="comment">% Acceleration due to gravity in m/s^2</span>
+t = [0:0.01:10]; <span class="comment">% Time array in seconds</span>
+x_dist = (Vo*cosd(A))*t; <span class="comment">% Horizontal distance traveled</span>
+y_dist = (Vo*sind(A))*t - 0.5*g*t.^2; <span class="comment">% Vertical distance traveled</span>
+
+<span class="comment">% Perform Calculatons</span>
+<span class="comment">% Part a. of calculations</span>
+[y_max k] = max(y_dist); <span class="comment">% Returns maximum vertical distance &amp; index k</span>
+t_max = t(k); <span class="comment">% Returns kth in the time array</span>
+
+<span class="comment">% Part b. of calculations</span>
+t = [0:0.01:2*t_max];
+x_dist = (Vo*cosd(A))*t; <span class="comment">% Horizontal distance traveled</span>
+y_dist = (Vo*sind(A))*t - 0.5*g*t.^2; <span class="comment">% Vertical distance traveled</span>
+
+<span class="comment">% Display results</span>
+disp(<span class="string">'Part a.'</span>)
+fprintf(<span class="string">'The maximum altitude of the projectile is: %5.2f meters.\n\n'</span>, y_max)
+fprintf(<span class="string">'This occurs at %5.2f seconds after launch.\n\n'</span>,t_max)
+fprintf(<span class="string">'The total flight path is shown below.\n\n'</span>)
+
+disp(<span class="string">'Part b.'</span>)
+plot(x_dist, y_dist)
+title(<span class="string">'Projectile flight, Vo = 100 m/s, A = 35 deg'</span>)
+xlabel(<span class="string">'Horizontal distance, m'</span>)
+ylabel(<span class="string">'Vertical distance, m'</span>)
+grid on</pre>
+
+<pre class="oct-code-output">Part a.
+The maximum altitude of the projectile is: 167.68 meters.
+ 
+This occurs at  5.85 seconds after launch.
+ 
+The total flight path is shown below.
+ 
+Part b.
+</pre>
+<img src="engr_133_lab02_achoque-1.png" alt="engr_133_lab02_achoque-1.png">
+<footer>
+<hr>
+<a href="https://www.octave.org">Published with GNU Octave 5.2.0</a>
+</footer>
+<!--
+##### SOURCE BEGIN #####
+%% ENGR 133, Lab-02
+% Authored by: Andres Choque
+% Authored on: 9/14/2020
+
+% Exercise #1
+
+close all
+clear
+clc
+
+% Problem presentation
+%{
+We are asked to perform some calculations for a projectile, given the equations
+for the horizonatal (x-direction) and vertical (y-direction) distance traveled
+as a function of initial velocity(Vo), launch angle(A), and time(t). We are
+given values for Vo and A, but x-distance, y-distance, and time are unknown. We
+want to know the maximum height of the projectile and the corresponding time to
+reach that height. We also want to create a plot of the entire flight of the
+projectile
+%}
+
+% Initialize Variables
+Vo = 100; % Initial velocity in m/s
+A = 35; % Launch in degrees
+g = 9.81; % Acceleration due to gravity in m/s^2
+t = [0:0.01:10]; % Time array in seconds
+x_dist = (Vo*cosd(A))*t; % Horizontal distance traveled
+y_dist = (Vo*sind(A))*t - 0.5*g*t.^2; % Vertical distance traveled
+
+% Perform Calculatons
+% Part a. of calculations
+[y_max k] = max(y_dist); % Returns maximum vertical distance & index k
+t_max = t(k); % Returns kth in the time array
+
+% Part b. of calculations
+t = [0:0.01:2*t_max];
+x_dist = (Vo*cosd(A))*t; % Horizontal distance traveled
+y_dist = (Vo*sind(A))*t - 0.5*g*t.^2; % Vertical distance traveled
+
+% Display results
+disp('Part a.')
+fprintf('The maximum altitude of the projectile is: %5.2f meters.\n\n', y_max)
+fprintf('This occurs at %5.2f seconds after launch.\n\n',t_max)
+fprintf('The total flight path is shown below.\n\n')
+
+disp('Part b.')
+plot(x_dist, y_dist)
+title('Projectile flight, Vo = 100 m/s, A = 35 deg')
+xlabel('Horizontal distance, m')
+ylabel('Vertical distance, m')
+grid on
+
+##### SOURCE END #####
+-->
+</body>
+</html>

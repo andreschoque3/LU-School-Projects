@@ -1,0 +1,269 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>ENGR 133, Lab 07</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-11-16"><meta name="DC.source" content="engr_133_lab07_achoque.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>ENGR 133, Lab 07</h1><!--introduction--><p>Authored by: Andres Choque Authored on: 11/11/2020</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Problem 1</a></li><li><a href="#2">Problem 2</a></li><li><a href="#3">Problem 3</a></li></ul></div><h2 id="1">Problem 1</h2><pre class="codeinput">clear
+close <span class="string">all</span>
+clc
+
+<span class="comment">% Problem Presentation</span>
+<span class="comment">%{
+</span><span class="comment">Given two equations with three unknowns and are asked to solve for "x" and
+</span><span class="comment">"y" in terms of "a".
+</span><span class="comment">%}
+</span>
+<span class="comment">% Intialize variables</span>
+syms <span class="string">a</span> <span class="string">x</span> <span class="string">y</span>
+eqn1 = x+6*y == a;
+eqn2 = 2*x-3*y == 9;
+
+<span class="comment">% Perform calculations and display results</span>
+[X,Y] = solve(eqn1,eqn2,{x,y});
+pretty([X,Y])
+</pre><pre class="codeoutput">/ a   18  2 a   3 \
+| - + --, --- - - |
+\ 5    5   15   5 /
+
+</pre><h2 id="2">Problem 2</h2><pre class="codeinput">clear
+close <span class="string">all</span>
+clc
+
+<span class="comment">% Problem Presentation</span>
+<span class="comment">%{
+</span><span class="comment">Determine all the local minima and local maxima and all the inflection
+</span><span class="comment">points where dy/dx = 0 of the following function: y = x^4 -
+</span><span class="comment">16/3x^3+8x^2-4.
+</span><span class="comment">%}
+</span>
+<span class="comment">% Initialize variables</span>
+syms <span class="string">x</span>
+y = x^4-(16/3)*x^3+8*x^2-4;
+dydx = diff(y);
+d2ydx2 = diff(dydx);
+
+<span class="comment">% Peform calculations</span>
+<span class="comment">% Find the x and y values of interest</span>
+x_points = solve(dydx);
+y_points = subs(y,x,x_points);
+
+
+<span class="comment">% Loop to evaluate nature of zero points</span>
+<span class="keyword">for</span> k = 1:length(x_points)
+    eval(k) = subs(d2ydx2,x,x_points(k));
+    <span class="keyword">if</span> double(eval(k)) &gt; 0
+        outcomes(k) = <span class="string">"local minima"</span>;
+    <span class="keyword">elseif</span> double(eval(k)) == 0
+        outcomes(k) = <span class="string">"inflection points"</span>;
+    <span class="keyword">else</span>
+        outcomes(k) = <span class="string">"local maximum"</span>;
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="comment">% Display results</span>
+<span class="keyword">for</span> k = 1:length(x_points)
+     fprintf(<span class="string">'\nA %s exists at x = %4.2f, y = %4.2f.\n\n'</span>,outcomes{1,k}, double(x_points(k)),double(y_points(k)))
+<span class="keyword">end</span>
+fplot(y,[double(x_points(1))-1 double(x_points(length(x_points)))+1])
+title(<span class="string">"Graph of function y = x^4 - (16/3)x^3 + 8x^2 - 4"</span>)
+ylabel(<span class="string">'(y) axis'</span>)
+xlabel(<span class="string">'(x) axis'</span>)
+grid <span class="string">minor</span>
+</pre><pre class="codeoutput">
+A local minima exists at x = 0.00, y = -4.00.
+
+
+A inflection points exists at x = 2.00, y = 1.33.
+
+
+A inflection points exists at x = 2.00, y = 1.33.
+
+</pre><img vspace="5" hspace="5" src="engr_133_lab07_achoque_01.png" alt=""> <h2 id="3">Problem 3</h2><pre class="codeinput">clear
+close <span class="string">all</span>
+clc
+
+<span class="comment">% Problem presentation</span>
+<span class="comment">%{
+</span><span class="comment">Here we have the case of a rocket launch where the fuel burns for a
+</span><span class="comment">specific length of time and we are interested in knowing the velocity at
+</span><span class="comment">the end of the fuel burn. We are given the function that best describes the
+</span><span class="comment">acceleration (dv/dt) and mass as a function of time fuel burns.
+</span><span class="comment">%}
+</span>
+<span class="comment">% Intialize variables</span>
+syms <span class="string">t</span> <span class="string">T</span> <span class="string">mo</span> <span class="string">r</span> <span class="string">b</span> <span class="string">g</span> <span class="string">to</span> <span class="string">tf</span>
+
+<span class="comment">% Perform calculations</span>
+v_t = int((T/(mo*(1-r*t/b)))-g,to,tf);
+v_b = double(subs(v_t,{T mo r b g to tf},{48000 2200 0.8 40 9.81 0 40}));
+
+<span class="comment">% Display results</span>
+fprintf(<span class="string">'\nThe rocket velocity at fuel burnout is v = %6.2f m/s.\n\n'</span>,v_b)
+</pre><pre class="codeoutput">
+The rocket velocity at fuel burnout is v = 1363.35 m/s.
+
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% ENGR 133, Lab 07
+% Authored by: Andres Choque
+% Authored on: 11/11/2020
+
+%% Problem 1
+
+clear
+close all
+clc
+
+% Problem Presentation
+%{
+Given two equations with three unknowns and are asked to solve for "x" and
+"y" in terms of "a".
+%}
+
+% Intialize variables
+syms a x y
+eqn1 = x+6*y == a;
+eqn2 = 2*x-3*y == 9;
+
+% Perform calculations and display results
+[X,Y] = solve(eqn1,eqn2,{x,y});
+pretty([X,Y])
+
+%% Problem 2
+
+clear 
+close all
+clc
+
+% Problem Presentation
+%{
+Determine all the local minima and local maxima and all the inflection
+points where dy/dx = 0 of the following function: y = x^4 -
+16/3x^3+8x^2-4.
+%}
+
+% Initialize variables
+syms x
+y = x^4-(16/3)*x^3+8*x^2-4;
+dydx = diff(y);
+d2ydx2 = diff(dydx);
+
+% Peform calculations
+% Find the x and y values of interest
+x_points = solve(dydx);
+y_points = subs(y,x,x_points);
+
+
+% Loop to evaluate nature of zero points
+for k = 1:length(x_points)
+    eval(k) = subs(d2ydx2,x,x_points(k));
+    if double(eval(k)) > 0
+        outcomes(k) = "local minima";
+    elseif double(eval(k)) == 0
+        outcomes(k) = "inflection points";
+    else
+        outcomes(k) = "local maximum";
+    end
+end
+
+% Display results
+for k = 1:length(x_points)
+     fprintf('\nA %s exists at x = %4.2f, y = %4.2f.\n\n',outcomes{1,k}, double(x_points(k)),double(y_points(k)))
+end
+fplot(y,[double(x_points(1))-1 double(x_points(length(x_points)))+1])
+title("Graph of function y = x^4 - (16/3)x^3 + 8x^2 - 4")
+ylabel('(y) axis')
+xlabel('(x) axis')
+grid minor
+
+%% Problem 3
+
+clear 
+close all
+clc
+
+% Problem presentation
+%{
+Here we have the case of a rocket launch where the fuel burns for a
+specific length of time and we are interested in knowing the velocity at
+the end of the fuel burn. We are given the function that best describes the
+acceleration (dv/dt) and mass as a function of time fuel burns.
+%}
+
+% Intialize variables
+syms t T mo r b g to tf
+
+% Perform calculations
+v_t = int((T/(mo*(1-r*t/b)))-g,to,tf);
+v_b = double(subs(v_t,{T mo r b g to tf},{48000 2200 0.8 40 9.81 0 40}));
+
+% Display results
+fprintf('\nThe rocket velocity at fuel burnout is v = %6.2f m/s.\n\n',v_b)
+    
+
+##### SOURCE END #####
+--></body></html>

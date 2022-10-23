@@ -1,0 +1,316 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>ENGR 133, Lab 05</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-27"><meta name="DC.source" content="engr_133_lab05_2_achoque.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>ENGR 133, Lab 05</h1><!--introduction--><p>Authored by: Andres Choque Authored on: 10/19/2020</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Problem 1</a></li><li><a href="#2">Problem 2</a></li><li><a href="#3">Problem 3</a></li></ul></div><h2 id="1">Problem 1</h2><pre class="codeinput">clear
+close <span class="string">all</span>
+clc
+
+<span class="comment">% Problem Presentation</span>
+
+<span class="comment">%{
+</span><span class="comment">Write a program that accepts a year and determines whether the year is a leap
+</span><span class="comment">year . Use the mod function. The output should be the variable extra_day, which
+</span><span class="comment">should be 1 if the year is a leap year and 0 otherwise. The rules for determining
+</span><span class="comment">leap years in the Gregorian calendar are as follows:
+</span><span class="comment">  1. All years evenly divisible by 400 are leap years.
+</span><span class="comment">  2. Years evenly divisible by 100 but not by 400 are not leap years.
+</span><span class="comment">  3. Years divisible by 4 but not by 100 are leap years
+</span><span class="comment">  4. All other years are not leap years.
+</span><span class="comment">For example, the years 1800, 1900, 2100, 2300, and 2500 are not leap years, but
+</span><span class="comment">2400 is a leap year.
+</span><span class="comment">%}
+</span>
+<span class="comment">% Initialize variables</span>
+year = 2000; <span class="comment">%input('Enter the year (4 digits): '); % asks for input</span>
+extra_day = 0; <span class="comment">% Initializes counter variable</span>
+
+<span class="comment">% Perform Calculations</span>
+<span class="keyword">if</span> mod(year,400) == 0 <span class="comment">%Performs logical text for rule 1</span>
+  extra_day = 1; <span class="comment">%Changes counter variable if true</span>
+<span class="keyword">elseif</span> mod(year,100) == 0 <span class="comment">%Performs logical text for rule 2</span>
+  extra_day = 0; <span class="comment">%Changes counter variable if true</span>
+<span class="keyword">elseif</span> mod(year,4) == 0 <span class="comment">%Perfroms logical text for rule 3</span>
+  extra_day = 1; <span class="comment">%Changes counter variable if true</span>
+<span class="keyword">else</span>
+  extra_day = 0; <span class="comment">%Changes counter variable if all tests false</span>
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> extra_day ==1
+  output = <span class="string">'is'</span>;
+<span class="keyword">else</span>
+  output = <span class="string">'is not'</span>;
+<span class="keyword">end</span>
+
+<span class="comment">% Display results</span>
+fprintf(<span class="string">'\nThe year %4.0f %s a leap year.\n\n'</span>,year, output)
+</pre><pre class="codeoutput">
+The year 2000 is a leap year.
+
+</pre><h2 id="2">Problem 2</h2><pre class="codeinput">clear
+close <span class="string">all</span>
+clc
+
+<span class="comment">% Problem presentation</span>
+
+<span class="comment">%{
+</span><span class="comment">Write a program that uses a for loop to determine the time at which an object is
+</span><span class="comment">the closest to the origin at (0,0). Determine also the minimum distance.
+</span><span class="comment">
+</span><span class="comment">Pseudocode:
+</span><span class="comment">--Initialize a time vector over the interval of interest.
+</span><span class="comment">--Initialize vectors for the x and y coordinates over time.
+</span><span class="comment">--Compute an array of d values for each (x,y) pair.
+</span><span class="comment">--Find the minimum value of the d vector -- answers the 2nd part
+</span><span class="comment">--Find the time of the minimum d value -- answers the 1st part
+</span><span class="comment">--Confirm that our solution is reasonable
+</span><span class="comment">%}
+</span>
+<span class="comment">% Initialize variables</span>
+t = 0:0.01:4; <span class="comment">%Initialize time vector</span>
+x = 5*t - 10; <span class="comment">%Initialize x-coordinate vector</span>
+y = 25*t.^2 - 120*t + 144; <span class="comment">%Initialize y-coordinate vector</span>
+d = sqrt(x.^2 + y.^2); <span class="comment">%Initialize distance vector</span>
+min_dist = Inf; <span class="comment">%Initialize placeholder for storing minimum distance</span>
+
+<span class="comment">% Perfrom Calculations</span>
+<span class="keyword">for</span> k = 1:length(t) <span class="comment">% loop to look at every value in distance array</span>
+  <span class="keyword">if</span> d(k) &lt; min_dist; <span class="comment">% replace min_dist if lower than previous value</span>
+    min_dist = d(k); <span class="comment">% replace min_dist if lower than previous value</span>
+    tmin = t(k); <span class="comment">% replace time value</span>
+  <span class="keyword">end</span> <span class="comment">% terminates the branch</span>
+<span class="keyword">end</span> <span class="comment">% terminates the loop</span>
+
+<span class="comment">% Display results</span>
+fprintf(<span class="string">'The minimum distance is: %6.4f.\n\n'</span>,min_dist)
+fprintf(<span class="string">'It occurs at t = %6.4f seconds.\n\n'</span>,tmin)
+plot(x,y),grid <span class="string">minor</span> <span class="comment">% plot the entire time range</span>
+title(<span class="string">'Proximity to (0,0) plot'</span>)
+xlabel(<span class="string">'x(t) = 5t - 10'</span>),ylabel(<span class="string">'y(t) = 25t^2 -120t + 144'</span>)
+</pre><pre class="codeoutput">The minimum distance is: 1.3581.
+
+It occurs at t = 2.2300 seconds.
+
+</pre><img vspace="5" hspace="5" src="engr_133_lab05_2_achoque_01.png" alt=""> <h2 id="3">Problem 3</h2><pre class="codeinput">close <span class="string">all</span>
+clear
+clc
+
+<span class="comment">% Problem Presentation</span>
+
+<span class="comment">%{
+</span><span class="comment">We are given a function describing force as a function of time and are about to
+</span><span class="comment">create a plot over an interval defined by an undefined upper bound.
+</span><span class="comment">%}
+</span>
+<span class="comment">% Initialize variables</span>
+x = 0; y = 0; <span class="comment">% x represents time, y represents force</span>
+k = 0; <span class="comment">% k is the loop counter</span>
+
+<span class="comment">% Perform calculations</span>
+<span class="keyword">while</span> y &lt; 9.8 <span class="comment">% the upper limit of force is used as a condition</span>
+  k = k+1; <span class="comment">% loop counter is incremented</span>
+  x = x+0.01; <span class="comment">% x variable is incremented</span>
+  y(k) = 10*(1-exp(-x/4)); <span class="comment">% new y array element is computed</span>
+<span class="keyword">end</span>
+
+xmax = x; <span class="comment">%upper limit of the set</span>
+t = 0:0.01:xmax; <span class="comment">% time array is computed</span>
+
+<span class="comment">% Display results</span>
+plot(t,y), grid <span class="string">minor</span>
+title(<span class="string">'y = 10(1-e^{-x/4})'</span>)
+xlabel(<span class="string">'Time x (s)'</span>)
+ylabel(<span class="string">'Force y (N)'</span>)
+</pre><img vspace="5" hspace="5" src="engr_133_lab05_2_achoque_02.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% ENGR 133, Lab 05
+% Authored by: Andres Choque
+% Authored on: 10/19/2020
+
+%% Problem 1
+
+clear
+close all
+clc
+
+% Problem Presentation
+
+%{
+Write a program that accepts a year and determines whether the year is a leap
+year . Use the mod function. The output should be the variable extra_day, which
+should be 1 if the year is a leap year and 0 otherwise. The rules for determining
+leap years in the Gregorian calendar are as follows:
+  1. All years evenly divisible by 400 are leap years.
+  2. Years evenly divisible by 100 but not by 400 are not leap years.
+  3. Years divisible by 4 but not by 100 are leap years
+  4. All other years are not leap years.
+For example, the years 1800, 1900, 2100, 2300, and 2500 are not leap years, but
+2400 is a leap year.
+%}
+
+% Initialize variables
+year = 2000; %input('Enter the year (4 digits): '); % asks for input
+extra_day = 0; % Initializes counter variable
+
+% Perform Calculations
+if mod(year,400) == 0 %Performs logical text for rule 1
+  extra_day = 1; %Changes counter variable if true
+elseif mod(year,100) == 0 %Performs logical text for rule 2
+  extra_day = 0; %Changes counter variable if true
+elseif mod(year,4) == 0 %Perfroms logical text for rule 3
+  extra_day = 1; %Changes counter variable if true
+else 
+  extra_day = 0; %Changes counter variable if all tests false
+end
+
+if extra_day ==1
+  output = 'is';
+else
+  output = 'is not';
+end
+
+% Display results
+fprintf('\nThe year %4.0f %s a leap year.\n\n',year, output)
+
+%% Problem 2
+
+clear
+close all
+clc
+
+% Problem presentation
+
+%{
+Write a program that uses a for loop to determine the time at which an object is
+the closest to the origin at (0,0). Determine also the minimum distance.
+
+Pseudocode:
+REPLACE_WITH_DASH_DASHInitialize a time vector over the interval of interest.
+REPLACE_WITH_DASH_DASHInitialize vectors for the x and y coordinates over time.
+REPLACE_WITH_DASH_DASHCompute an array of d values for each (x,y) pair.
+REPLACE_WITH_DASH_DASHFind the minimum value of the d vector REPLACE_WITH_DASH_DASH answers the 2nd part
+REPLACE_WITH_DASH_DASHFind the time of the minimum d value REPLACE_WITH_DASH_DASH answers the 1st part
+REPLACE_WITH_DASH_DASHConfirm that our solution is reasonable
+%}
+
+% Initialize variables
+t = 0:0.01:4; %Initialize time vector
+x = 5*t - 10; %Initialize x-coordinate vector
+y = 25*t.^2 - 120*t + 144; %Initialize y-coordinate vector
+d = sqrt(x.^2 + y.^2); %Initialize distance vector 
+min_dist = Inf; %Initialize placeholder for storing minimum distance
+
+% Perfrom Calculations
+for k = 1:length(t) % loop to look at every value in distance array
+  if d(k) < min_dist; % replace min_dist if lower than previous value
+    min_dist = d(k); % replace min_dist if lower than previous value
+    tmin = t(k); % replace time value
+  end % terminates the branch
+end % terminates the loop
+
+% Display results
+fprintf('The minimum distance is: %6.4f.\n\n',min_dist)
+fprintf('It occurs at t = %6.4f seconds.\n\n',tmin)
+plot(x,y),grid minor % plot the entire time range
+title('Proximity to (0,0) plot')
+xlabel('x(t) = 5t - 10'),ylabel('y(t) = 25t^2 -120t + 144')
+
+%% Problem 3
+
+close all
+clear 
+clc
+
+% Problem Presentation
+
+%{
+We are given a function describing force as a function of time and are about to
+create a plot over an interval defined by an undefined upper bound. 
+%}
+
+% Initialize variables
+x = 0; y = 0; % x represents time, y represents force
+k = 0; % k is the loop counter
+
+% Perform calculations
+while y < 9.8 % the upper limit of force is used as a condition
+  k = k+1; % loop counter is incremented
+  x = x+0.01; % x variable is incremented
+  y(k) = 10*(1-exp(-x/4)); % new y array element is computed
+end
+
+xmax = x; %upper limit of the set
+t = 0:0.01:xmax; % time array is computed 
+
+% Display results
+plot(t,y), grid minor
+title('y = 10(1-e^{-x/4})')
+xlabel('Time x (s)')
+ylabel('Force y (N)')
+##### SOURCE END #####
+--></body></html>

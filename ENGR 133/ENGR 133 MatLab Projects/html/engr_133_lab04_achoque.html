@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ENGR 133, Lab-04</title>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] },
+  TeX: { equationNumbers: { autoNumber: 'all' } }
+});
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<style>
+body > * {
+  max-width: 42em;
+}
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  padding-left: 7.5em;
+  padding-right: 7.5em;
+}
+pre, code {
+  max-width: 50em;
+  font-family: monospace;
+}
+pre.oct-code {
+  border: 1px solid Grey;
+  padding: 5px;
+}
+pre.oct-code-output {
+  margin-left: 2em;
+}
+span.comment {
+  color: ForestGreen;
+}
+span.keyword {
+  color: Blue;
+}
+span.string {
+  color: DarkOrchid;
+}
+footer {
+  margin-top: 2em;
+  font-size: 80%;
+}
+a, a:visited {
+  color: Blue;
+}
+h2 {
+  font-family: "Roboto Condensed", serif;
+  margin-top: 1.5em;
+}
+h2 a, h2 a:visited {
+  color: Black;
+}
+</style>
+
+</head>
+<body>
+<h1>ENGR 133, Lab-04</h1>
+
+<p>Authored by: Andres Choque
+Authored on: 10/6/2020</p>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#node1">Problem 1</a></li>
+<li><a href="#node2">Problem 2</a></li>
+<li><a href="#node3">Problem 3</a></li>
+<li><a href="#node4">Problem 4</a></li>
+</ul>
+<h2><a id="node1">Problem 1</a></h2>
+<pre class="oct-code">close all
+clear
+clc
+
+<span class="comment">% Problem Presentation</span>
+<span class="comment">%{
+We are asked to write a function that accepts a temperature expressed in degrees
+Fahrenheit (oF) and computes the corresponding value in degrees Celsius (oC).
+We are further instructed to test our functions.
+%}</span>
+
+<span class="comment">% Function file destination</span>
+
+<span class="comment">%{
+function y = tempF2C(x)
+  % Converts from Fahrenheit to Celsius
+y = (5/9)*(x-32);
+endfunction
+%}</span>
+
+<span class="keyword">function</span> y = tempF2C(x)
+  <span class="comment">% Converts from Fahrenheit to Celsius</span>
+y = (5/9)*(x-32);
+<span class="keyword">endfunction</span>
+
+<span class="comment">% Initialize Variables</span>
+test_temps_F = [-460 32 212]; <span class="comment">% Test temperatures defined at key known points</span>
+
+<span class="comment">% Perform calculations</span>
+test_results_C = tempF2C(test_temps_F); <span class="comment">% Calls function with test points</span>
+
+<span class="comment">% Display results</span>
+fprintf(<span class="string">'The test temperatures are:\n\n'</span>)
+disp(test_temps_F)
+fprintf(<span class="string">'\n\nThe computed temperature are:\n\n'</span>)
+disp(test_results_C)</pre>
+
+<pre class="oct-code-output">The test temperatures are:
+ 
+  -460    32   212
+ 
+ 
+The computed temperature are:
+ 
+  -273.33333     0.00000   100.00000
+</pre>
+<h2><a id="node2">Problem 2</a></h2>
+<pre class="oct-code">close all
+clear
+clc
+
+<span class="comment">% Problem Presentation</span>
+<span class="comment">%{
+We are asked to write a function that accepts a temperature expressed in degrees
+Fahrenheit (oF) and computes the corresponding value in degrees Celsius (oC). We
+are further instructed to test our functions.
+%}</span>
+
+<span class="comment">% Function file destination</span>
+tempF2C = @(x) (5/9)*(x-32); <span class="comment">% Converts from Fahrenheit to Celsius</span>
+
+<span class="comment">% Initialize Variables</span>
+test_temps_F = [-460 32 212]; <span class="comment">% Test temperatures defined at key known points</span>
+
+<span class="comment">% Perform calculations</span>
+test_results_C = tempF2C(test_temps_F);
+
+<span class="comment">% Display results</span>
+Table = [test_temps_F<span class="string">' test_results_C'</span>]; <span class="comment">% Prepare data for display</span>
+disp(<span class="string">'Table of Temperature Conversion'</span>) <span class="comment">% Display data table</span>
+disp(<span class="string">''</span>) <span class="comment">% Insert blank line</span>
+disp(<span class="string">'  Fahrenheit   Celsius'</span>) <span class="comment">% Display table headings</span>
+disp(Table) <span class="comment">% Display table contents</span>
+</pre>
+
+<pre class="oct-code-output">Table of Temperature Conversion
+ 
+  Fahrenheit   Celsius
+  -460.00000  -273.33333
+    32.00000     0.00000
+   212.00000   100.00000
+</pre>
+<h2><a id="node3">Problem 3</a></h2>
+<pre class="oct-code">close all
+clear
+clc
+
+<span class="comment">% Problem Presentation</span>
+<span class="comment">%{
+We are asked to use the fminbnd function to find the values of R and L of the
+figure provided that will minimize the total cost of enclosing the area with
+fence.
+%}</span>
+
+<span class="comment">% Function file definition</span>
+
+<span class="comment">%{
+function Ct = fence(R)
+A = 2000; % area to be enclosed (square feet)
+Cs = 40; % cost of a straight fence per foot
+Cc = 50; % cost of curved fence per foot
+L = (A-0.5*pi*R.^2)./(2*R); % length as a function of A &amp; R
+Ct = Cs*(2*R+2*L)+Cc*pi*R; % Cost calculation
+end
+%}</span>
+<span class="keyword">function</span> Ct = fence(R)
+A = 2000; <span class="comment">% area to be enclosed (square feet)</span>
+Cs = 40; <span class="comment">% cost of a straight fence per foot</span>
+Cc = 50; <span class="comment">% cost of curved fence per foot</span>
+L = (A-0.5*pi*R.^2)./(2*R); <span class="comment">% length as a function of A &amp; R</span>
+Ct = Cs*(2*R+2*L)+Cc*pi*R; <span class="comment">% Cost calculation</span>
+<span class="keyword">end</span>
+
+<span class="comment">%  Initialize Variables</span>
+<span class="keyword">global</span> A <span class="comment">% Makes variable A available in both the function &amp; main script</span>
+optimum_R = fminbnd(@fence,0,2000); <span class="comment">% finds R between 0-100 that minimize Ct</span>
+
+<span class="comment">% Perform calculations</span>
+min_cost = fence(optimum_R); <span class="comment">%Returns minimum cost at optimum R</span>
+optimum_L = (2000-0.5*pi*optimum_R.^2)./(2*optimum_R); <span class="comment">% Corresponding to L to R</span>
+
+<span class="comment">% Display results</span>
+fprintf(<span class="string">'The optimum value of R is: %5.2f feet.\n\n'</span>,optimum_R)
+fprintf(<span class="string">'The corresponding value of L is: %5.2f feet.\n\n'</span>,optimum_L)
+fprintf(<span class="string">'The resulting minimum cost is: $%5.2f.\n\n'</span>,min_cost)</pre>
+
+<pre class="oct-code-output">The optimum value of R is: 21.43 feet.
+ 
+The corresponding value of L is: 29.84 feet.
+ 
+The resulting minimum cost is: $7467.21.
+ 
+</pre>
+<h2><a id="node4">Problem 4</a></h2>
+<pre class="oct-code">close all
+clear
+clc
+
+<span class="comment">% Problem Presentation</span>
+<span class="comment">%{
+We are given the history of daily prices for two stocks and are asked to
+determine how many days the price of stock A was above that of stock B. Our
+Peudocode for solving this problem is:
+  --compare each price daily to see if stock A is higher than stock B
+  --create a list of the days where this condition is true
+  --count how many days are in our list
+  --Display the results
+%}</span>
+
+<span class="comment">% Initialize variables</span>
+price_A = [19,18,22,21,25,19,17,21,27,29]; <span class="comment">% Data for stock A</span>
+price_B = [22,17,20,19,24,18,16,25,28,27]; <span class="comment">% Datd for stock B</span>
+
+<span class="comment">% Perform calculations</span>
+total_days = length(price_A); <span class="comment">% total days of data</span>
+comp_days = find(price_A&gt;price_B); <span class="comment">% days stock A is greater than stock B</span>
+num_days = length(comp_days); <span class="comment">% count of days A&gt;B</span>
+
+<span class="comment">% Display results</span>
+fprintf(<span class="string">'Stock A price was compared to stock B for %2.0f days.\n\n'</span>,total_days)
+fprintf(<span class="string">'Stock A price exceeded stock B price on %2.0f days.\n\n'</span>,num_days)</pre>
+
+<pre class="oct-code-output">Stock A price was compared to stock B for 10 days.
+ 
+Stock A price exceeded stock B price on  7 days.
+ 
+</pre>
+
+<footer>
+<hr>
+<a href="https://www.octave.org">Published with GNU Octave 5.2.0</a>
+</footer>
+<!--
+##### SOURCE BEGIN #####
+%% ENGR 133, Lab-04
+% Authored by: Andres Choque
+% Authored on: 10/6/2020
+
+%% Problem 1
+
+close all
+clear
+clc
+
+% Problem Presentation
+%{
+We are asked to write a function that accepts a temperature expressed in degrees
+Fahrenheit (oF) and computes the corresponding value in degrees Celsius (oC).
+We are further instructed to test our functions.
+%}
+
+% Function file destination
+
+%{
+function y = tempF2C(x)
+  % Converts from Fahrenheit to Celsius
+y = (5/9)*(x-32);
+endfunction
+%}
+
+function y = tempF2C(x)
+  % Converts from Fahrenheit to Celsius
+y = (5/9)*(x-32);
+endfunction
+
+% Initialize Variables
+test_temps_F = [-460 32 212]; % Test temperatures defined at key known points
+
+% Perform calculations
+test_results_C = tempF2C(test_temps_F); % Calls function with test points
+
+% Display results
+fprintf('The test temperatures are:\n\n')
+disp(test_temps_F)
+fprintf('\n\nThe computed temperature are:\n\n')
+disp(test_results_C)
+
+%% Problem 2
+
+close all
+clear
+clc
+
+% Problem Presentation
+%{
+We are asked to write a function that accepts a temperature expressed in degrees
+Fahrenheit (oF) and computes the corresponding value in degrees Celsius (oC). We
+are further instructed to test our functions.
+%}
+
+% Function file destination
+tempF2C = @(x) (5/9)*(x-32); % Converts from Fahrenheit to Celsius
+
+% Initialize Variables
+test_temps_F = [-460 32 212]; % Test temperatures defined at key known points
+
+% Perform calculations
+test_results_C = tempF2C(test_temps_F);
+
+% Display results
+Table = [test_temps_F' test_results_C']; % Prepare data for display
+disp('Table of Temperature Conversion') % Display data table
+disp('') % Insert blank line
+disp('  Fahrenheit   Celsius') % Display table headings
+disp(Table) % Display table contents
+
+%% Problem 3
+
+close all
+clear
+clc
+
+% Problem Presentation
+%{
+We are asked to use the fminbnd function to find the values of R and L of the
+figure provided that will minimize the total cost of enclosing the area with
+fence.
+%}
+
+% Function file definition
+
+%{
+function Ct = fence(R)
+A = 2000; % area to be enclosed (square feet)
+Cs = 40; % cost of a straight fence per foot
+Cc = 50; % cost of curved fence per foot
+L = (A-0.5*pi*R.^2)./(2*R); % length as a function of A & R
+Ct = Cs*(2*R+2*L)+Cc*pi*R; % Cost calculation
+end
+%}
+function Ct = fence(R)
+A = 2000; % area to be enclosed (square feet)
+Cs = 40; % cost of a straight fence per foot
+Cc = 50; % cost of curved fence per foot
+L = (A-0.5*pi*R.^2)./(2*R); % length as a function of A & R
+Ct = Cs*(2*R+2*L)+Cc*pi*R; % Cost calculation
+end
+
+%  Initialize Variables
+global A % Makes variable A available in both the function & main script
+optimum_R = fminbnd(@fence,0,2000); % finds R between 0-100 that minimize Ct
+
+% Perform calculations
+min_cost = fence(optimum_R); %Returns minimum cost at optimum R
+optimum_L = (2000-0.5*pi*optimum_R.^2)./(2*optimum_R); % Corresponding to L to R
+
+% Display results
+fprintf('The optimum value of R is: %5.2f feet.\n\n',optimum_R)
+fprintf('The corresponding value of L is: %5.2f feet.\n\n',optimum_L)
+fprintf('The resulting minimum cost is: $%5.2f.\n\n',min_cost)
+
+
+%% Problem 4
+
+close all
+clear
+clc
+
+% Problem Presentation
+%{
+We are given the history of daily prices for two stocks and are asked to
+determine how many days the price of stock A was above that of stock B. Our
+Peudocode for solving this problem is:
+  --compare each price daily to see if stock A is higher than stock B
+  --create a list of the days where this condition is true
+  --count how many days are in our list
+  --Display the results
+%}
+
+% Initialize variables
+price_A = [19,18,22,21,25,19,17,21,27,29]; % Data for stock A
+price_B = [22,17,20,19,24,18,16,25,28,27]; % Datd for stock B
+
+% Perform calculations
+total_days = length(price_A); % total days of data
+comp_days = find(price_A>price_B); % days stock A is greater than stock B
+num_days = length(comp_days); % count of days A>B
+
+% Display results
+fprintf('Stock A price was compared to stock B for %2.0f days.\n\n',total_days)
+fprintf('Stock A price exceeded stock B price on %2.0f days.\n\n',num_days)
+
+
+##### SOURCE END #####
+-->
+</body>
+</html>
