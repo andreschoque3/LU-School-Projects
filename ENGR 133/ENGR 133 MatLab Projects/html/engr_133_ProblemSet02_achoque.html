@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ENGR 133, Problem Set 02</title>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] },
+  TeX: { equationNumbers: { autoNumber: 'all' } }
+});
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<style>
+body > * {
+  max-width: 42em;
+}
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  padding-left: 7.5em;
+  padding-right: 7.5em;
+}
+pre, code {
+  max-width: 50em;
+  font-family: monospace;
+}
+pre.oct-code {
+  border: 1px solid Grey;
+  padding: 5px;
+}
+pre.oct-code-output {
+  margin-left: 2em;
+}
+span.comment {
+  color: ForestGreen;
+}
+span.keyword {
+  color: Blue;
+}
+span.string {
+  color: DarkOrchid;
+}
+footer {
+  margin-top: 2em;
+  font-size: 80%;
+}
+a, a:visited {
+  color: Blue;
+}
+h2 {
+  font-family: "Roboto Condensed", serif;
+  margin-top: 1.5em;
+}
+h2 a, h2 a:visited {
+  color: Black;
+}
+</style>
+
+</head>
+<body>
+<h1>ENGR 133, Problem Set 02</h1>
+
+<p>Authored by: Andres Choque
+Authored on: 9/18/2020</p>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#node1">Exercise 2.13</a></li>
+<li><a href="#node2">Exercise 2.16</a></li>
+<li><a href="#node3">Exercise 2.19</a></li>
+<li><a href="#node4">Exercise 2.26</a></li>
+<li><a href="#node5">Exercise 2.30</a></li>
+</ul>
+<h2><a id="node1">Exercise 2.13</a></h2>
+<pre class="oct-code">clear
+close all
+clc
+
+<span class="comment">%{
+Given the matrices A = [9 6 ; 2 7] and B = [8, 9 ; 6, 2] do the
+following by hand, then check your answer using MATLAB. a. Find the sum of A
+and B. b. Find the array product w = A. * B. c. Find the array product z = B.*A.
+is z = w?
+%}</span>
+
+<span class="comment">% Pseudocode</span>
+<span class="comment">% Initialize variables</span>
+<span class="comment">% Evaluate a</span>
+<span class="comment">% Evaluate b</span>
+<span class="comment">% Evalutae c</span>
+<span class="comment">% Compare z and w</span>
+<span class="comment">% Display the results</span>
+
+<span class="comment">% Initialize variables</span>
+A = [9, 6 ; 2, 7];
+B = [8, 9 ; 6, 2];
+
+<span class="comment">% Evaluate a</span>
+a = A + B;
+
+<span class="comment">% Evaluate b</span>
+w = A.*B;
+
+<span class="comment">% Evalutae c</span>
+z = B.*A;
+
+<span class="comment">% Compare z and w</span>
+  <span class="comment">% according to the results z and w both equal to [72, 54; 12, 14]</span>
+
+<span class="comment">% Display the results</span>
+disp(<span class="string">'For problem 2.13 the answers are diplayed here: '</span>), a, w, z
+disp(<span class="string">''</span>)
+disp(<span class="string">'according to the results z and w both equal to [72, 54; 12, 14]'</span>)</pre>
+
+<pre class="oct-code-output">For problem 2.13 the answers are diplayed here: 
+a =
+ 
+   17   15
+    8    9
+ 
+w =
+ 
+   72   54
+   12   14
+ 
+z =
+ 
+   72   54
+   12   14
+ 
+ 
+according to the results z and w both equal to [72, 54; 12, 14]
+</pre>
+<h2><a id="node2">Exercise 2.16</a></h2>
+<pre class="oct-code">clear
+close all
+clc
+
+<span class="comment">%{
+Given the matrices A = [5, 9 ; 6, 2] and B = [4,7 ; 2, 8] do the following by
+hand, then check your answers using MATLAB. a. Find the array quotient C = A./B
+b. Find the array quotient D = B./A. c. Find the quotient E = A.\B. d. Find the
+array quotient F = B.\A. e. Are any of the C,B,E or F equal?
+%}</span>
+
+<span class="comment">% Pseudocode</span>
+<span class="comment">% Initialize variables</span>
+<span class="comment">% Evaluate a</span>
+<span class="comment">% Evaluate b</span>
+<span class="comment">% Evalutae c</span>
+<span class="comment">% Evaluate d</span>
+<span class="comment">% Compare C,D,E, and F</span>
+<span class="comment">% Display the results</span>
+
+<span class="comment">% Initialize variables</span>
+A = [5, 9; 6, 2];
+B = [4, 7; 2, 8];
+
+<span class="comment">% Evaluate a</span>
+C = A./B;
+
+<span class="comment">% Evaluate b</span>
+D = B./A;
+
+<span class="comment">% Evalutae c</span>
+E = A.\B;
+
+<span class="comment">% Evaluate d</span>
+F = B.\A;
+
+<span class="comment">% Compare C,D,E, and F</span>
+  <span class="comment">% According to the results C and F are the same while D and E are the same</span>
+
+<span class="comment">% Display the results</span>
+disp(<span class="string">'For problem 2.16 the answers are the following: '</span>), C, D, E, F
+disp(<span class="string">''</span>)
+disp(<span class="string">'According to the data C and F are the same while D and E are the same'</span>)
+disp(<span class="string">''</span>)</pre>
+
+<pre class="oct-code-output">For problem 2.16 the answers are the following: 
+C =
+ 
+   1.25000   1.28571
+   3.00000   0.25000
+ 
+D =
+ 
+   0.80000   0.77778
+   0.33333   4.00000
+ 
+E =
+ 
+   0.80000   0.77778
+   0.33333   4.00000
+ 
+F =
+ 
+   1.25000   1.28571
+   3.00000   0.25000
+ 
+ 
+According to the data C and F are the same while D and E are the same
+ 
+</pre>
+<h2><a id="node3">Exercise 2.19</a></h2>
+<pre class="oct-code">clear
+close all
+clc
+
+<span class="comment">%{
+Plot the following function for x over the interval -2 &lt;= x &lt;= 16
+f(x) = (4cosx)/(x+e^-0.75x) Use enough points to get a smooth curve.
+%}</span>
+
+<span class="comment">% Pseudocode</span>
+<span class="comment">% Initialize variables</span>
+<span class="comment">% Generate plot</span>
+
+<span class="comment">% Initialize variables</span>
+x = [-2:0.01:16];
+y = (4*cos(x))/(x + exp(-0.75*x));
+
+<span class="comment">% Generate plot</span>
+plot(x,y), xlabel(<span class="string">'x'</span>), ylabel(<span class="string">'y'</span>),
+title(<span class="string">'Function f(x) = (4cosx)/(x+e^-0.75x)'</span>)</pre>
+<img src="engr_133_ProblemSet02_achoque-1.png" alt="engr_133_ProblemSet02_achoque-1.png"><h2><a id="node4">Exercise 2.26</a></h2>
+<pre class="oct-code">clear
+close all
+clc
+
+<span class="comment">%{
+Two divers start at the surface and establish the following coordinate system:
+x is to the west, y is to the north, and z is down. Diver 1 swims 60 ft east,
+then 25 ft south, and then dives 30 ft. At the same time, diver 2 dives 20 ft,
+swims east 30 ft, and then south 55 ft. a. compute the distance between diver 1
+and the starting point. b. How far in each direction must diver 1 swim to reach
+diver 2? c. How far in a straight line must diver 1 swim to reach diver 2?
+%}</span>
+
+<span class="comment">% Pseudocode</span>
+<span class="comment">% Initialize variables</span>
+<span class="comment">% Compute the distance between diver 1 and the starting point</span>
+<span class="comment">% Calculate the distance in each direction diver 1 needs to reach diver 2</span>
+<span class="comment">% Calculate the distance in a straight line to catch up to diver 2</span>
+<span class="comment">% Display the results</span>
+
+<span class="comment">% Initialize variables</span>
+divr1 = [-60, -25, 30];
+divr2 = [-30, -55, 20];
+
+<span class="comment">% Compute the distance between diver 1 and the starting point</span>
+d = sqrt((divr1(1)-divr2(1))^2 + (divr1(2)-divr2(2))^2 + (divr1(3)-divr2(3))^2);
+
+<span class="comment">% Calculate the distance in each direction diver 1 needs to reach diver 2</span>
+x = divr2(1) - divr1(1); <span class="comment">% represent east direction</span>
+y = divr2(2) - divr1(2); <span class="comment">% represent south direction</span>
+z = divr2(3) - divr1(3); <span class="comment">% represent north direction</span>
+
+<span class="comment">% Calculate the distance in a straight line to catch up to diver 2</span>
+  <span class="comment">% this is the same value as part a</span>
+  <span class="comment">% sum(x,y,z)</span>
+
+<span class="comment">% Display the results</span>
+disp(<span class="string">'For problem 2.26 the diver 1 travels in d distance of (ft): '</span>), d
+disp(<span class="string">''</span>)
+disp(<span class="string">'Diver 1 travels in the following values for each direction: '</span>), x,y,z
+disp(<span class="string">''</span>)
+disp(<span class="string">'Therefore the distance in a straight line diver 1 must swim is: '</span>), d
+disp(<span class="string">''</span>)</pre>
+
+<pre class="oct-code-output">For problem 2.26 the diver 1 travels in d distance of (ft): 
+d =  43.589
+ 
+Diver 1 travels in the following values for each direction: 
+x =  30
+y = -30
+z = -10
+ 
+Therefore the distance in a straight line diver 1 must swim is: 
+d =  43.589
+ 
+</pre>
+<h2><a id="node5">Exercise 2.30</a></h2>
+<pre class="oct-code">clear
+close all
+clc
+
+<span class="comment">%{
+A water tank consists of a cylindrical part of radius r and height h, and a
+hemispherical top. The tank is to be constructed to hold 500m^3 of fluid when
+filled. The surface area of the cylindrical part is 2 pi r h, and its volume is
+pi r^2 h. The surface area of the hemispherical top is given by 2 pi r^2, and
+its volume is given by 2 pi r^3/3. The cost to construct the cylindrical part
+of the tank is $300/m^2 of surface area; the hemispherical part costs $400/m^2.
+Plot the cost versus r for 2 &lt;= r &lt;= 10 m, and determine the radius that results
+in the least cost. Compute the corresponding height h.
+%}</span>
+
+<span class="comment">% Pseudocode</span>
+<span class="comment">% Initialize variables</span>
+<span class="comment">% Determine the height h</span>
+<span class="comment">% Calculate the cost of the hemisphere</span>
+<span class="comment">% Calculate the cost of the cylinder</span>
+<span class="comment">% Calculate the total cost</span>
+<span class="comment">% Determine the minimum value for cost and index</span>
+<span class="comment">% Plot the data</span>
+<span class="comment">% Display the results</span>
+
+<span class="comment">% Initialize variables</span>
+V = 500; <span class="comment">% V represents volume</span>
+R = [2:0.01:10]; <span class="comment">% R represents range</span>
+<span class="comment">% V = pi*R^2*h + 2/3*pi*R^2 this represents the equation for volume</span>
+
+<span class="comment">% Determine the height h</span>
+h = (V- 2./3.*pi.*R.^2)./(pi.*R.^2);
+
+<span class="comment">% Calculate the cost of the hemispherical part</span>
+Cost_s = 400*(2.*pi.*R.^2);
+
+<span class="comment">% Calculate the cost of the cylinder</span>
+Cost_c = 300*(2.*pi.*R.*h);
+
+<span class="comment">% Calculate the total cost</span>
+Cost_tot = Cost_s + Cost_c;
+
+<span class="comment">% Determine the minimum value for cost and index</span>
+[minCost_tot, index] = min(Cost_tot);
+R(index);
+Cost_tot(index);
+
+<span class="comment">% Plot the data</span>
+plot(R, Cost_tot, R(index), minCost_tot,<span class="string">'o'</span>), xlabel(<span class="string">'Radius'</span>), ylabel(<span class="string">'Cost'</span>)
+title(<span class="string">'Radius That Result in the Least Cost'</span>)
+
+<span class="comment">% Display the results</span>
+disp(<span class="string">'For problem 2.30 the minimum cost is: '</span>), Cost_tot(index)
+disp(<span class="string">''</span>)
+disp(<span class="string">'radius with the least cost is: '</span>), R(index)
+disp(<span class="string">''</span>)</pre>
+
+<pre class="oct-code-output">For problem 2.30 the minimum cost is: 
+ans =  110185.56341
+ 
+radius with the least cost is: 
+ans =  3.9900
+ 
+</pre>
+<img src="engr_133_ProblemSet02_achoque-2.png" alt="engr_133_ProblemSet02_achoque-2.png">
+<footer>
+<hr>
+<a href="https://www.octave.org">Published with GNU Octave 5.2.0</a>
+</footer>
+<!--
+##### SOURCE BEGIN #####
+%% ENGR 133, Problem Set 02
+% Authored by: Andres Choque
+% Authored on: 9/18/2020
+
+%% Exercise 2.13
+
+clear
+close all
+clc
+
+%{
+Given the matrices A = [9 6 ; 2 7] and B = [8, 9 ; 6, 2] do the
+following by hand, then check your answer using MATLAB. a. Find the sum of A
+and B. b. Find the array product w = A. * B. c. Find the array product z = B.*A.
+is z = w?
+%}
+
+% Pseudocode
+% Initialize variables
+% Evaluate a
+% Evaluate b
+% Evalutae c
+% Compare z and w
+% Display the results
+
+% Initialize variables
+A = [9, 6 ; 2, 7];
+B = [8, 9 ; 6, 2];
+
+% Evaluate a
+a = A + B;
+
+% Evaluate b
+w = A.*B;
+
+% Evalutae c
+z = B.*A;
+
+% Compare z and w
+  % according to the results z and w both equal to [72, 54; 12, 14]
+
+% Display the results
+disp('For problem 2.13 the answers are diplayed here: '), a, w, z
+disp('')
+disp('according to the results z and w both equal to [72, 54; 12, 14]')
+
+%% Exercise 2.16
+
+clear
+close all
+clc
+
+%{
+Given the matrices A = [5, 9 ; 6, 2] and B = [4,7 ; 2, 8] do the following by
+hand, then check your answers using MATLAB. a. Find the array quotient C = A./B
+b. Find the array quotient D = B./A. c. Find the quotient E = A.\B. d. Find the
+array quotient F = B.\A. e. Are any of the C,B,E or F equal?
+%}
+
+% Pseudocode
+% Initialize variables
+% Evaluate a
+% Evaluate b
+% Evalutae c
+% Evaluate d
+% Compare C,D,E, and F
+% Display the results
+
+% Initialize variables
+A = [5, 9; 6, 2];
+B = [4, 7; 2, 8];
+
+% Evaluate a
+C = A./B;
+
+% Evaluate b
+D = B./A;
+
+% Evalutae c
+E = A.\B;
+
+% Evaluate d
+F = B.\A;
+
+% Compare C,D,E, and F
+  % According to the results C and F are the same while D and E are the same
+
+% Display the results
+disp('For problem 2.16 the answers are the following: '), C, D, E, F
+disp('')
+disp('According to the data C and F are the same while D and E are the same')
+disp('')
+
+%% Exercise 2.19
+
+clear
+close all
+clc
+
+%{
+Plot the following function for x over the interval -2 <= x <= 16
+f(x) = (4cosx)/(x+e^-0.75x) Use enough points to get a smooth curve.
+%}
+
+% Pseudocode
+% Initialize variables
+% Generate plot
+
+% Initialize variables
+x = [-2:0.01:16];
+y = (4*cos(x))/(x + exp(-0.75*x));
+
+% Generate plot
+plot(x,y), xlabel('x'), ylabel('y'),
+title('Function f(x) = (4cosx)/(x+e^-0.75x)')
+
+%% Exercise 2.26
+
+clear
+close all
+clc
+
+%{
+Two divers start at the surface and establish the following coordinate system:
+x is to the west, y is to the north, and z is down. Diver 1 swims 60 ft east,
+then 25 ft south, and then dives 30 ft. At the same time, diver 2 dives 20 ft,
+swims east 30 ft, and then south 55 ft. a. compute the distance between diver 1
+and the starting point. b. How far in each direction must diver 1 swim to reach
+diver 2? c. How far in a straight line must diver 1 swim to reach diver 2?
+%}
+
+% Pseudocode
+% Initialize variables
+% Compute the distance between diver 1 and the starting point
+% Calculate the distance in each direction diver 1 needs to reach diver 2
+% Calculate the distance in a straight line to catch up to diver 2
+% Display the results
+
+% Initialize variables
+divr1 = [-60, -25, 30];
+divr2 = [-30, -55, 20];
+
+% Compute the distance between diver 1 and the starting point
+d = sqrt((divr1(1)-divr2(1))^2 + (divr1(2)-divr2(2))^2 + (divr1(3)-divr2(3))^2);
+
+% Calculate the distance in each direction diver 1 needs to reach diver 2
+x = divr2(1) - divr1(1); % represent east direction
+y = divr2(2) - divr1(2); % represent south direction
+z = divr2(3) - divr1(3); % represent north direction
+
+% Calculate the distance in a straight line to catch up to diver 2
+  % this is the same value as part a
+  % sum(x,y,z)
+
+% Display the results
+disp('For problem 2.26 the diver 1 travels in d distance of (ft): '), d
+disp('')
+disp('Diver 1 travels in the following values for each direction: '), x,y,z
+disp('')
+disp('Therefore the distance in a straight line diver 1 must swim is: '), d
+disp('')
+
+%% Exercise 2.30
+
+clear
+close all
+clc
+
+%{
+A water tank consists of a cylindrical part of radius r and height h, and a
+hemispherical top. The tank is to be constructed to hold 500m^3 of fluid when
+filled. The surface area of the cylindrical part is 2 pi r h, and its volume is
+pi r^2 h. The surface area of the hemispherical top is given by 2 pi r^2, and
+its volume is given by 2 pi r^3/3. The cost to construct the cylindrical part
+of the tank is $300/m^2 of surface area; the hemispherical part costs $400/m^2.
+Plot the cost versus r for 2 <= r <= 10 m, and determine the radius that results
+in the least cost. Compute the corresponding height h.
+%}
+
+% Pseudocode
+% Initialize variables
+% Determine the height h
+% Calculate the cost of the hemisphere
+% Calculate the cost of the cylinder
+% Calculate the total cost
+% Determine the minimum value for cost and index
+% Plot the data
+% Display the results
+
+% Initialize variables
+V = 500; % V represents volume
+R = [2:0.01:10]; % R represents range
+% V = pi*R^2*h + 2/3*pi*R^2 this represents the equation for volume
+
+% Determine the height h
+h = (V- 2./3.*pi.*R.^2)./(pi.*R.^2);
+
+% Calculate the cost of the hemispherical part
+Cost_s = 400*(2.*pi.*R.^2);
+
+% Calculate the cost of the cylinder
+Cost_c = 300*(2.*pi.*R.*h);
+
+% Calculate the total cost
+Cost_tot = Cost_s + Cost_c;
+
+% Determine the minimum value for cost and index
+[minCost_tot, index] = min(Cost_tot);
+R(index);
+Cost_tot(index);
+
+% Plot the data
+plot(R, Cost_tot, R(index), minCost_tot,'o'), xlabel('Radius'), ylabel('Cost')
+title('Radius That Result in the Least Cost')
+
+% Display the results
+disp('For problem 2.30 the minimum cost is: '), Cost_tot(index)
+disp('')
+disp('radius with the least cost is: '), R(index)
+disp('')
+
+
+
+
+
+
+
+
+
+
+
+
+
+##### SOURCE END #####
+-->
+</body>
+</html>
