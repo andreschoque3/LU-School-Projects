@@ -1,0 +1,2 @@
+﻿Source.obj : error LNK2019: unresolved external symbol "void __cdecl displayGeneralInfo(void)" (?displayGeneralInfo@@YAXXZ) referenced in function _main
+C:\Users\Andres Choque\Documents\CSIS 111-001 Projects\Project12\Debug\Project12.exe : fatal error LNK1120: 1 unresolved externals
