@@ -1,0 +1,12 @@
+﻿  Source.cpp
+C:\Users\Andres Choque\Documents\CSIS 112 Projects\Lab 4 Template class\Lab 4 Template class\Source.cpp(27,18): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Andres Choque\Documents\CSIS 112 Projects\Lab 4 Template class\Lab 4 Template class\Source.cpp(28,17): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+  Lab 4 Template class.vcxproj -> C:\Users\Andres Choque\Documents\CSIS 112 Projects\Lab 4 Template class\Debug\Lab 4 Template class.exe

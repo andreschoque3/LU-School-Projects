@@ -1,0 +1,5 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Choque Lab 1B Temperature Readings.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Lab 1B Temperature Readings.cpp
+  imp.cpp
+  Generating Code...
+  Lab 1B Temperature Readings.vcxproj -> C:\Users\Andres Choque\Documents\CSIS 112 Projects\Lab 1B Temperature Readings\Debug\Lab 1B Temperature Readings.exe

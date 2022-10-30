@@ -1,0 +1,8 @@
+﻿  Choque Lab_1_Loan_Payment.cpp
+C:\Users\Andres Choque\Documents\CSIS 112 Projects\Choque Lab_1_Loan_Payment\Choque Lab_1_Loan_Payment\Choque Lab_1_Loan_Payment.cpp(56,20): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\Andres Choque\Documents\CSIS 112 Projects\Choque Lab_1_Loan_Payment\Choque Lab_1_Loan_Payment\Choque Lab_1_Loan_Payment.cpp(85,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\Andres Choque\Documents\CSIS 112 Projects\Choque Lab_1_Loan_Payment\Choque Lab_1_Loan_Payment\Choque Lab_1_Loan_Payment.cpp(94,59): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Andres Choque\Documents\CSIS 112 Projects\Choque Lab_1_Loan_Payment\Choque Lab_1_Loan_Payment\Choque Lab_1_Loan_Payment.cpp(104,68): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Andres Choque\Documents\CSIS 112 Projects\Choque Lab_1_Loan_Payment\Choque Lab_1_Loan_Payment\Choque Lab_1_Loan_Payment.cpp(106,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\Andres Choque\Documents\CSIS 112 Projects\Choque Lab_1_Loan_Payment\Choque Lab_1_Loan_Payment\Choque Lab_1_Loan_Payment.cpp(135,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Choque Lab_1_Loan_Payment.vcxproj -> C:\Users\Andres Choque\Documents\CSIS 112 Projects\Choque Lab_1_Loan_Payment\Debug\Choque Lab_1_Loan_Payment.exe
