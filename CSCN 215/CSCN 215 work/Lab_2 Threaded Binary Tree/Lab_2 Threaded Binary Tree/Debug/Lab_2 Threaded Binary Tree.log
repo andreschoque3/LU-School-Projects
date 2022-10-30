@@ -1,0 +1,82 @@
+﻿  MainTest.cpp
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\book.h(74,1): warning C4005: 'INFINITY': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\corecrt_math.h(90): message : see previous definition of 'INFINITY'
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BST.h(180): error C2259: 'BSTNode<Key,E>': cannot instantiate abstract class
+          with
+          [
+              Key=int,
+              E=std::string
+          ]
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BST.h(23): message : see declaration of 'BSTNode<Key,E>'
+          with
+          [
+              Key=int,
+              E=std::string
+          ]
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BST.h(180): message : due to following members:
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BST.h(180): message : 'void BinNode<E>::setLeft(BinNode<E> *)': is abstract
+          with
+          [
+              E=std::string
+          ]
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BinNode.h(25): message : see declaration of 'BinNode<E>::setLeft'
+          with
+          [
+              E=std::string
+          ]
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BST.h(180): message : 'void BinNode<E>::setRight(BinNode<E> *)': is abstract
+          with
+          [
+              E=std::string
+          ]
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BinNode.h(31): message : see declaration of 'BinNode<E>::setRight'
+          with
+          [
+              E=std::string
+          ]
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BST.h(167): message : while compiling class template member function 'BSTNode<Key,E> *BST<Key,E>::inserthelp(BSTNode<Key,E> *,const Key &,const E &)'
+          with
+          [
+              Key=int,
+              E=std::string
+          ]
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BST.h(53): message : see reference to function template instantiation 'BSTNode<Key,E> *BST<Key,E>::inserthelp(BSTNode<Key,E> *,const Key &,const E &)' being compiled
+          with
+          [
+              Key=int,
+              E=std::string
+          ]
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\MainTest.cpp(10): message : see reference to class template instantiation 'BST<int,std::string>' being compiled
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BST.h(180,33): error C2259: 'BSTNode<Key,E>': cannot instantiate abstract class
+          with
+          [
+              Key=int,
+              E=std::string
+          ]
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BST.h(23): message : see declaration of 'BSTNode<Key,E>'
+          with
+          [
+              Key=int,
+              E=std::string
+          ]
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BST.h(180,33): message : due to following members:
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BST.h(180,33): message : 'void BinNode<E>::setLeft(BinNode<E> *)': is abstract
+          with
+          [
+              E=std::string
+          ]
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BinNode.h(25): message : see declaration of 'BinNode<E>::setLeft'
+          with
+          [
+              E=std::string
+          ]
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BST.h(180,33): message : 'void BinNode<E>::setRight(BinNode<E> *)': is abstract
+          with
+          [
+              E=std::string
+          ]
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab_2 Threaded Binary Tree\Lab_2 Threaded Binary Tree\BinNode.h(31): message : see declaration of 'BinNode<E>::setRight'
+          with
+          [
+              E=std::string
+          ]
