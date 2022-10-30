@@ -1,0 +1,11 @@
+﻿  Source.cpp
+C:\Users\Andres Choque\Documents\CSIS 111-001 Projects\Lab 7 Planets\Lab 7 Planets\Source.cpp(133,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Andres Choque\Documents\CSIS 111-001 Projects\Lab 7 Planets\Lab 7 Planets\Source.cpp(136,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Andres Choque\Documents\CSIS 111-001 Projects\Lab 7 Planets\Lab 7 Planets\Source.cpp(142,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Andres Choque\Documents\CSIS 111-001 Projects\Lab 7 Planets\Lab 7 Planets\Source.cpp(145,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Andres Choque\Documents\CSIS 111-001 Projects\Lab 7 Planets\Lab 7 Planets\Source.cpp(148,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Andres Choque\Documents\CSIS 111-001 Projects\Lab 7 Planets\Lab 7 Planets\Source.cpp(151,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Andres Choque\Documents\CSIS 111-001 Projects\Lab 7 Planets\Lab 7 Planets\Source.cpp(154,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Andres Choque\Documents\CSIS 111-001 Projects\Lab 7 Planets\Lab 7 Planets\Source.cpp(157,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Andres Choque\Documents\CSIS 111-001 Projects\Lab 7 Planets\Lab 7 Planets\Source.cpp(160,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Lab 7 Planets.vcxproj -> C:\Users\Andres Choque\Documents\CSIS 111-001 Projects\Lab 7 Planets\Debug\Lab 7 Planets.exe

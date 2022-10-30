@@ -1,0 +1,3 @@
+﻿  Source.cpp
+C:\Users\Andres Choque\Documents\CSIS 111-001 Projects\Car_Ranges\Car_Ranges\Source.cpp(26,6): warning C4101: 'range': unreferenced local variable
+  Car_Ranges.vcxproj -> C:\Users\Andres Choque\Documents\CSIS 111-001 Projects\Car_Ranges\Debug\Car_Ranges.exe
