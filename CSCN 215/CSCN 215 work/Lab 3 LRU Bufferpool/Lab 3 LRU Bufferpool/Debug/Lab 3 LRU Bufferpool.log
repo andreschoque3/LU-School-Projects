@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab 3 LRU Bufferpool\Lab 3 LRU Bufferpool\LRUBufferPool.h(29,1): warning C4154: deletion of an array expression; conversion to pointer supplied
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab 3 LRU Bufferpool\Lab 3 LRU Bufferpool\LRUBufferPool.h(35,16): warning C4101: 'block': unreferenced local variable
+  Lab 3 LRU Bufferpool.vcxproj -> C:\Users\Andres Choque\Documents\CSIS 215 work\Lab 3 LRU Bufferpool\Debug\Lab 3 LRU Bufferpool.exe

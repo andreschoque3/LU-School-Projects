@@ -1,0 +1,4 @@
+﻿  bagtestmain.cpp
+C:\Users\Andres Choque\Documents\CSIS 215 work\Lab 1 Bag Dictionary\Lab 1 Bag Dictionary\book.h(75,1): warning C4005: 'INFINITY': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\corecrt_math.h(90): message : see previous definition of 'INFINITY'
+  Lab 1 Bag Dictionary.vcxproj -> C:\Users\Andres Choque\Documents\CSIS 215 work\Lab 1 Bag Dictionary\Debug\Lab 1 Bag Dictionary.exe
