@@ -1,0 +1,31 @@
+1. You just witnessed a bank robbery and got a partial license plate of the getaway vehicle. It started with ZD, had a 3 somewhere in the middle and ended with V. Help the police officer write regular expression for this plate.
+- ^ZD(?=.*3)[\dA-Z]-[\dA-Z]{2}V$
+
+2. Write a regular expression for each of the following sets of binary strings.  A file has been provided for you to test your work on: /courses/csci345/data/binary_string
+a. any string except 11 or 111 
+- (0|1)|11|111*
+
+3. Write a regular expression for each of the following sets of binary strings.  A file has been provided for you to test your work on: /courses/csci345/data/binary_string
+a. a string where every odd symbol is a 1  (3 points) (Note: the leftmost bit is in position 1, an odd position)
+- (0|1)*1(0|1)*1(0|1)*1(0|1)*1(0|1) 
+
+4. Write a regular expression for each of the following sets of binary strings.  A file has been provided for you to test your work on: /courses/csci345/data/binary_string
+a. a string that contains at least two 0s and at most one 1
+-1|(0|1)*00 
+
+5. Write a regular expression for each of the following sets of binary strings.  A file has been provided for you to test your work on: /courses/csci345/data/binary_string
+a. a string that has no consecutive 1s 
+-(0|1)(0|1)0(0|1)*
+
+6. Write a regular expression that will match US phone numbers, which can be of the form 1-434-555-1212 or 434-555-1212 or (434)555-1212 or 555-1212
+- ^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$
+
+7. The /etc/ssl/openssl.cnf file contains a number of name, value pairs of the form “name = value”.  It also contains a number of other things including headers, in which the line starts with a [, and comments, which have a # as the first character.  Write a command that lists the unique values(remember, name/value pairs) that are actually set (i.e. ignore commented lines)
+- cut -d' ' -f2 openssl.cnf | sort -u
+
+8. For this question, use the network.txt file in the data folder.  Also the command awk ‘{print $5}’ can be used to print the 5th field (or any field by replacing ‘5’ with the desired field number). For this question, keep in mind that there is a header row at the top.
+a. Write a command that prints the different protocols (5th column) along with the number of packets that used that protocol (there is one line in the file for each packet), sorted in decreasing order. 
+- awk '{print $4, $5}' network.txt | sort -r
+
+b. Write a command that lists all unique source IP addresses (3rd column, only 4 numbers separated by dots) along with the number of occurrences in the file (in the source column).
+- uniq -c network.txt | awk '{print $3": "$2}'

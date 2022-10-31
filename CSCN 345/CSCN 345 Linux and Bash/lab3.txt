@@ -1,0 +1,25 @@
+name it lab3.txt
+
+1. Write a regular expression (not a grep command) that matches the following format, where "month" is the full name of a month: Month, DD, YYYY
+- \w{3,9}?\s\d{1,2}?\s,\s\d{4}?
+
+2. Write a command that counts the number of blank lines in custdata.txt
+- grep -cv -P '\S' custdata.txt
+
+3. write a command that outputs the lines in custdata.txt that have two words in a row that start with capital letters (with only spaces between)
+- grep -E '\b[[:upper:]]+\b' custdata.txt
+
+4. write a command that lists all data values (no parameter value) from data.txt that have the same digit three times in a row, with the results being a sorted list 
+- grep "\([0-9]\)\\1\\1" data.txt | sort
+
+5. write a regular expression finds any line that begins with a capital letter and ends with a period in story_A.txt
+- grep "^[A-Z].*\.$" story_A.txt
+
+6. write a command that finds all the instances of rail and road in story_A.txt
+- grep -E 'rail|road' story_A.txt
+
+7. write a command that outputs all the unique IP numbers in network.txt
+- cat network.txt | sort -rn |uniq -u
+
+8. write a command that outputs all of the unique IP numbers in that use the SSH protocol in network.txt
+- cat network.txt | uniq -u

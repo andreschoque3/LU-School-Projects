@@ -1,0 +1,27 @@
+Bash Script
+
+Write a Bash script called newmv (to replace the linux command mv) that tries to rename the specified file (using the Linux command mv)
+
+Remember that if the destination file exists, the program should instead create an index number (a sort of version number) to append the destination file.
+So if I type ./newmv a.txt b.txt
+But if b.txt already exists, newmv will move the file to b.txt.1
+
+Note that if b.txt.1 already exists, you must rename the file to b.txt.2, and so on until you can successfully rename the file with a name that does not already exists.
+
+If the source and destination files are not specified on the command line, exit gracefully with an error message
+
+upload lab4 (newmv.sh) make it executable.
+
+code:
+
+vi newmv.sh
+
+#!/bin/bash
+
+# Checks if the file does not exists
+
+if [ -f new.sh ]; then
+  mv new.sh /jchoquegarcia
+fi
+
+#END

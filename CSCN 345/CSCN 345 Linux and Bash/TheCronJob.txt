@@ -1,0 +1,55 @@
+'1. Write a bash script to do the following:
+   a. update the OS automatically
+   b. Post any activity/error message to /var/log/cronupdate.log
+   c. post an "All done updating, boss!" message to the screen and to the log file
+ 
+2. Make a cron job to run the script every week on tuesday at 1am.
+
+3. Place the cronjob entry into the top of the script as a comment
+
+#!/bin/bash
+
+if [ `id -u` -ne 0 ]; then
+      echo "This script can be executed only as root, Exiting.."
+      exit 1
+   fi
+
+case "$1" in
+   install|update)
+
+	CRON_FILE="/var/spool/cron/root"
+
+	if [ ! -f $CRON_FILE ]; then
+	   echo "cron file for root doesnot exist, creating.."
+	   touch $CRON_FILE
+	   /usr/bin/crontab $CRON_FILE
+	fi
+
+	# Method 1
+	grep -qi "cleanup_script" $CRON_FILE
+	if [ $? != 0 ]; then
+	   echo "All done updating, boss!"
+           /bin/echo "0 1 * * 2 rm -f /home/deepak/cleanup_script.sh" >> $CRON_FILE
+	fi
+
+	# Method 2
+	grep -qi "cleanup_script" $CRON_FILE
+	if [ $? != 0 ]; then
+	   echo "All done updating, boss!"
+	   crontab -u deepak -l >/tmp/crontab
+           /bin/echo "0 1 * * 2 rm -f /home/deepak/cleanup_script.sh" >> /tmp/crontab
+	   crontab -u deepak /tmp/crontab
+	fi
+
+	;;
+	
+	*)
+	
+	echo "Usage: $0 {install|update}"
+        crontab -l | cat CRON_FILE > crontab.txt
+	exit 1
+    ;;
+
+esac
+
+

@@ -1,0 +1,66 @@
+Lab 10- System Admin
+
+step 1: from your home directory, display the screen the file system table
+- mount | column -t
+
+step 2: ID port activity - specifically all TCP and UDP ports that are listening
+- netstat -ltnp | grep -w ':80'
+- lsof -i :80
+- fuser 80/tcp fuser 3306/tcp
+
+step 3: Archive and zip your home directory
+- zip -r archivename.zip /courses/csis345/f21/jchoquegarcia
+
+step 4: Create an ssh key of type ed25519
+- ssh-keygen -t ed25519 -C "jchoquegarcia@10.64.0.75"
+
+step 5: find all files in your home directory that have been modified in the last 7 days
+- find /courses/csis345/f21/jchoquegarcia/ -mtime -7 -ls
+
+step 6: count all files in the /etc directory that end in .conf and have RW permissions for the owner and R permissions for everyone else
+- ls -l /etc | grep ?conf | wc -l 
+
+step 7: find all files in your home directory AND in the f21 directory that have lab in the name
+- find / -iname 'lab*' /courses/csis345/f21/jchoquegarcia
+- find / -iname 'lab*' /courses/csis345/f21
+
+step 8: you are in /courses. count the # of files that are larger than 3G
+- find /courses -type f -size +3G -printf 1 | wc -c
+
+step 9: download fail2ban from the command line for your specific OS
+- sudo apt-get install fail2ban 
+
+step 10: you are in your home folder in goober. Copy your lab10 textfile from goober in your f21 folder to your home folder in your VM linux
+- cp lab10.txt /andres-virtual-box/downloads
+
+step 11: List the current users in goober
+- cat /etc/passwd
+
+step 12: from the command line - download the latest version of bzflag (you pick the format)
+- sudo apt update
+- sudo apt install bzflag
+
+step 13: list all unit services that are currently running
+-systemctl list-unit-files --type=service
+
+step 14: turn on the immutable bit for your lab10 file
+- chattr +i lab10.txt
+
+step 15: verify your network is communicating
+- ping -c 4 8.8.8.8
+
+step 16: Imagine you have 6 computers on your network. using one command, scan ports 1-500 on these systems and try to ID: Open Ports, The Os, Dont ping, and include increased verbosity
+- nmap 10.64.0.75 | open 10.64.0.75 
+
+step 17: Write the cron line to output the results of active network port activity to a file at 11pm every wednesday
+- crontab - e 
+- 0 23 * * 3 lsof -i :22
+
+step 18: change permissions of the file GivingThanks.ppm to owner (read, write) group () others(read)
+- chmod u+r+w+x GivingThanks.ppm
+
+step 19: add yourself to the root group
+- usermod -aG sudo jchoquegarcia
+ 
+step 20: send a message to your professor in the command line that you are done.
+- write root ftuzi "I am done" Ctrl+D
