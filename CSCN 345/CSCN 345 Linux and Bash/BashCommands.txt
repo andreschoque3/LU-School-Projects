@@ -1,0 +1,42 @@
+What do the following do?
+
+$ls -al: lists all the files in the current directory including files under advanced view
+
+$cp -R dir1 dir2: copies all the files in the current directory from directory 1 and directory 2
+
+$pwd: returns the directory that the user was in
+
+$ping: shows the amount of time and resources taken to connect to a specific ip
+
+$passwd: changes the password to the user's account
+
+$touch <filename>: creates a file in the current directory.
+
+$ctrl c: kills any current command running in the commmand prompt
+
+$more: used to view any texts files in the terminal
+
+$skill: used to terminate processes manually
+
+$rm - rf /*: forcibly removes all files in the current directory
+
+2. write a command that lists the contents of a directory with the most recently updated file printed last?
+- jchoquegarcia@goober5: /courses/csis345/f21/jchoquegarcia/Lab1$ ls -altR . | head -n 3
+
+3. write a command that lists the contents of passwd in alpha sorted order
+- jchoquegarcia@goober5: /courses/csis345/f21/jchoquegarcia/Lab1$ cut -d: -f1/etc/passwd | sort
+
+4. write a command that lists the number of lines in passwd
+- jchoquegarcia@goober5: /courses/csis345/f21/jchoquegarcia/Lab1$ wc -l passwd
+
+5. redirect dmessages to a file
+- jchoquegarcia@goober5: /courses/csis345/f21/jchoquegarcia/Lab1$ dmesg > /var/log/dmesag
+
+6. find and count all the lines from dmessages that have the word ATA
+- jchoquegarcia@goober5: /courses/csis345/f21/jchoquegarcia/Lab1$ grep ATA var/log/dmesag
+
+7. make a file “timmy” change owner to root
+- jchoquegarcia@goober5: /courses/csis345/f21/jchoquegarcia/Lab1$ >timmy.txt sudo chown root timmy.txt
+
+8. display all processes that root owns
+- jchoquegarcia@goober5: /courses/csis345/f21/jchoquegarcia/Lab1$ ps -U root -u root u

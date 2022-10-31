@@ -1,0 +1,58 @@
+#!/bin/bash
+
+while:
+do
+clear
+
+echo "Welcome to the Contact List"
+echo "1. Insert New Contact"
+echo "2. "Print Contacts"
+echo "3. "Search Contacts"
+echo "4. "Sort Contacts"
+echo "5. "Contact list"
+echo "6. "Quit"
+read -p "Enter your choice " usr_cmd
+clear
+
+case $usr_cmd in
+1) echo "Insert new contact"
+   read -p "Enter First name" firsname
+   read -p "Enter last name" lastname
+   read -p "Enter email address" email 
+   read -p "Enter phone number" number
+   echo "Got that"
+clear
+   echo "New contact info:"
+   echo "-> Name: $firstname, $lastname. -> Email: $email. -> Phone: $number"
+   echo "$name : $firstname: $lastname : $emai : $phone" >> contactdir.log
+   echo "Saved successfully"
+;;
+2) echo "Print Contacts"
+   echo ""
+   cat contactdir.log
+;;
+3) echo "Search Contacts"
+   read -p "Enter contact name to Search " search_query
+   clear
+   echo "Search Results"
+   grep -i $search_query contactdir.log
+;;
+4) echo "Sort Contacts"
+/////////////////
+///////////////////
+//////////////////
+;;
+5) echo "contact list"
+ppppppppppppppppppp
+pppppppppppppppppp
+ppppppppppppppppp
+;;
+6)break;;
+*)echo "Invalid Option";;
+esac;
+
+read -p "Press 8 to Quit, Else return to Main Menu confirm_exit
+if [ $confirm_exit -eq 5]
+then break
+fi
+done 

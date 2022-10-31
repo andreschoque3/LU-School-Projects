@@ -1,0 +1,30 @@
+1. Create the file lab2.$USERNAME.txt in /courses/csis345/yourname copy the contents of lab2.txt into your file. Open the file you created and input the answers to the rest of the questions.
+
+2. write a command that outputs how many times the word Thomas exists in the text
+- grep -o -i Thomas custdata.txt | wc -l 
+
+3. write a command that outputs every line that includes "Rd" in custdata.txt
+- grep -n Rd custdata.txt
+ 
+4. write a command that outputs every line that ends with a 2
+- grep "2$" custdata.txt
+
+5. write a command that outputs every line with more than 5 digits in a row
+- grep -E '(^|[0-9])[0-9]{5}($|[^0-9]) custdata.txt
+
+6. write a command that outputs every line that includes Rd or Blvd or TX
+- egrep 'Rd|Blvd|TX' custdata.txt
+
+7. write a command that outputs a list of the street numbers from custdata.txt in sorted numeric order
+- egrep '([0-9])' custdata.txt | sort -n
+
+8. write a command that outputs the number of street addresses with exactly 3 digits in custdata.txt
+- grep -E '\<[0-9]{3}\>' custdata.txt
+
+9. write a command that show a list of how many users "logged in" each day in the current month (along with the date itself)
+- last -s '-1 month'  
+
+10. write a command that outputs all lines that begin with E and ends with 3 from custdata.txt
+- grep -E "^E|3$" custdata.txt
+
+  

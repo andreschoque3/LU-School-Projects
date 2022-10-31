@@ -1,0 +1,46 @@
+Write an AWK script to calculate student grades
+1. Calculate the percentage for each exam
+2. Calculate the average of all of the exams
+
+Data file: awk/grades
+Fields:
+First Name
+Last Name
+Exam 1 grade
+Exam 1 total
+Exam 2 grade
+Exam 2 total
+Exam 3 grade
+Exam 3 total
+Exam 4 grade
+Exam 4 total
+
+Bonus: anyone earing a perfect score then they get 5 point bonus
+
+output: $ Name received a 
+<%> for exam 1
+<%> for exam 2
+<%> for exam 3
+<%> for exam 4
+Average for $Name is $average
+
+code: vi jchoquegarcia.grades.awk
+
+awk '
+BEGIN {
+    
+    FS = ", " # separate the field separator
+    print "$NAME received a: "
+}
+
+FNR>1 {
+
+   per = ($3/$4) # % for exam 1
+   per2 = ($5/$6)*100 # % for exam 2
+   per3 = ($7/$8) # % for exam 3
+   per4 = ($9/$10)*100 # % for exam 4
+   avg = (per + per2 + per3 + per4)/4
+   print $1, "received a: ", per, per2, per3, per4 # output
+   print "The exam average for ", $1, "is " # the second output
+   printf("%s %d\n", avg )
+}' grades 

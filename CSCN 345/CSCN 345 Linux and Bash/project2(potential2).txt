@@ -1,0 +1,64 @@
+#!/bin/bash
+
+while:
+do
+clear
+
+echo "1. Insert New Contact"
+echo "2. Print Contacts"
+echo "3. Search term"
+echo "4. Sort terms"
+echo "5. contact list file"
+read -p "Enter your choice: " user_input
+clear
+
+case $user_input in
+1) echo "Insert New Contact" 
+   read -p "Enter first name: " firstname
+   read -p "Enter last name: " lastname
+   read -p "Enter email: " email
+   IFS = "@"
+   set --$i
+   if [ "${#@}" -ne 2 ]; then
+      echo "invalid email"
+   fi
+   domain="$2"
+   dig $domain | grep "ANSWER: 0" 1>/dev/null && echo "domain not good"
+   read -p "Enter phone number: " number
+   pat ="^[0-9]\{3\}[ -]\?[0-9]\{3\}[ -]\?[0-9]\{4\}"
+   while [[ ! $number =~ $pat ]]
+       do
+       echo "Please enter a phone number as xxx-xxx-xxxx:"
+       read number
+   done
+   echo "New contact info: "
+   echo "-> Name: $firstname, $lastname. -> Email: $email. -> Phone: $phone"
+   echo "$firstname : $lastname : $email : $phone" >> contactlistdir.log
+   echo "save";;
+
+2) echo "Print Contact"
+   echo ""
+   cat contactlistdir.log
+
+3) echo "Search terms"
+   read -p "Enter contact name to search: " search_query
+   clear
+   echo "search results"
+   grep -i $search_query contactlist.log;;
+
+4) echo "Sort terms"
+   //whatever
+   ;;
+
+5) echo "contact list file"
+;;
+*)echo "Wrong Option";;
+esac;
+read -p "Enter Q to Quit, Return to main menu") final_exit
+if [ $final_exit -eq 5]
+then break
+fi
+done
+
+   
+

@@ -1,0 +1,43 @@
+Change the permission to 600. and create all the scripts into one file.
+
+Using the data/custdata2z.txt as a source,
+Write a SED script to:
+1. Change St. to Street, Rd. to Road, ln. to Lane
+- vi change.sed
+{
+s/St./Street/g
+s/Rd./Road/g
+s/Ln./Lane/g
+}
+2. Delete any lines that have more than 6 consecutive numbers: write out to a different file
+- vi delete.sed
+{
+if (greater than 6 lines)
+  /[0-9]{7,}/d > custdata2zz.txt
+else
+ echo "no change made"
+}
+
+Using the data/employee.txt as a source,
+Write a SED script to:
+3. Convert all numbers into monetary notation ($ and .00): Write out to a different file
+- vi convert.sed
+{
+  s/\([0-9]*\)\([0-9][0-9]\)/\$\1\.\2/
+}
+4. Replace each space with a tab so that columns are created: Write out to a different file
+- vi replace.sed
+{
+ s / /\t/g > employee2.txt
+}
+5. Insert a heading into this file (User Title Office Salary). Insert at line 5.
+- vi insertheading.sed
+{
+  5i Title Office Salary
+}
+6. Replace all 20 characters with 22. Replace all 15 with 20.
+- vi replace.sed
+{
+ s/20/22/g
+ s/15/20/g
+}
