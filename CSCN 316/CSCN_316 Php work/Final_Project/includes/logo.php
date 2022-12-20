@@ -1,0 +1,1 @@
+<img class="logo" src="images/world-news.png" />
