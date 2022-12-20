@@ -1,0 +1,1 @@
+<h1>Global World News</h1>
