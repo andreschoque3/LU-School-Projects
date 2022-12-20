@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCPL Website</title>
+    <link rel="stylesheet" href="books.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="books.js" defer></script>
+</head>
+
+<body>
+    <!--Start of Section for the main cover page -->
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="/images/logo.png"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa-solid fa-square-xmark" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="policies.html">POLICIES</a></li>
+                    <li><a href="resources.html">RESOURCES</a></li>
+                    <li><a href="books.html">FEATURED BOOKS</a></li>
+                </ul>
+            </div>
+            <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <div class="text-box">
+            <h1>MCPL Featured Books</h1>
+            <p>Here are some of our featured books.</p>
+            <a class="hero-btn" id='libertyBtn' onclick="showCFLpage()">Click below</a>
+
+        </div>
+    </section>
+    <!--End of section for the main cover page -->
+
+
+    <!--Start of section 2-->
+    <section class="books">
+        <h1>Different Genres</h1>
+        <p>Lets see the books for each Genre</p>
+        <div class="row">
+            <div class="book-col">
+                <h3>Non-Fiction</h3>
+                <p>Scary Smart by Mo Gawdat, Empire of Pain, a Brief History of Black Holes, Rogues</p>
+
+            </div>
+
+            <div class="book-col">
+                <h3>Fiction</h3>
+                <p>The Maid, Olga Dies, To Paradise, The Magnolia Palace, The Fields</p>
+
+            </div>
+
+            <div class="book-col">
+                <h3>Science Fiction</h3>
+                <p>Dune, Ender's Game, The Martian, Ready Player One, 1984</p>
+
+            </div>
+
+            <div class="book-col">
+                <h3>History</h3>
+                <p>And There was Light, The Revolutionary, Waging a Good War, River of Gods, American Midnight</p>
+
+            </div>
+
+            <div class="book-col">
+                <h3>Biography</h3>
+                <p>A Book of Days, Finding Me, A Private Spy, Scars and Stripes, Lily's Promise</p>
+
+            </div>
+
+        </div>
+    </section>
+    <!--End of section 2-->
+
+    <section class="diff-books">
+        <h1>Visualization of the genres</h1>
+        <p>Hover to see genre</p>
+        <div class="row">
+            <div class="boks-col" id="diffOptions">
+                <img src="/images/pic-1.jpg">
+                <div class="layer">
+                    <h3>Non-Ficion</h3>
+                </div>
+            </div>
+
+            <div class="boks-col" id="diffOptions2">
+                <img src="/images/pic-2.jpg">
+                <div class="layer">
+                    <h3>Fiction</h3>
+                </div>
+            </div>
+
+            <div class="boks-col" id="diffOptions3">
+                <img src="/images/pic-3.jpg">
+                <div class="layer">
+                    <h3>Science-Fiction</h3>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--Start of section 3-->
+    <section class="contact-us">
+        <h1>Contact MCPL</h1>
+        <div class="row">
+            <div class="contact-col">
+                <div>
+                    <i class="fa-solid fa-house"></i>
+                    <span>
+                        <h5>245 North Avenue,</h5>
+                        <P>Mason City, USA <br> 24555 </P>
+                    </span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>
+                        <h5>1-555-555-2455</h5>
+                        <P>Monday - Saturday <br> 8am - 5pm</P>
+                    </span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>
+                        <h5>library@mpml.edu</h5>
+                        <P>Email us</P>
+                    </span>
+                </div>
+            </div>
+            <div class="contact-col">
+                <form action="../UI/backend/form-handler.php" method="post">
+                    <input type="text" name="name" placeholder="Enter your Name" required>
+                    <input type="text" name="email" placeholder="Enter your Email Address" required>
+                    <input type="text" name="subject" placeholder="Enter your Subject" required>
+                    <textarea name="8" name="message" placeholder="Message" required></textarea>
+                    <button type="submit" class="hero-btn gold-btn" id="LibertyBtn">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+    </section>
+    <!--End of section 3-->
+
+    <!--Start of last section-->
+    <section class="footer">
+        <h4>About Us</h4>
+        <p> Please contact us with all your inquiries that you have<br> </p>
+        <div class="icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-linkedin"></i>
+        </div>
+        <p>Copyright <i class="fa-regular fa-copyright"></i> 2022 MCPL. All rights Reserved. </p>
+    </section>
+    <!--End of last section-->
+
+</body>
+
+</html>
